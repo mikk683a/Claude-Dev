@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0b0f1a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Spark" />
+  <title>Spark — Daily Habits</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon-180.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">✦</span>
+        <h1>Spark</h1>
+      </div>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
+    </header>
+
+    <section class="hero">
+      <p class="date" id="todayLabel"></p>
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="52" />
+          <circle class="ring-fg" id="ringFg" cx="60" cy="60" r="52" />
+        </svg>
+        <div class="ring-center">
+          <span class="ring-pct" id="ringPct">0%</span>
+          <span class="ring-sub" id="ringSub">done today</span>
+        </div>
+      </div>
+    </section>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="habits">Habits</button>
+      <button class="tab" data-tab="tasks">Tasks</button>
+    </nav>
+
+    <main>
+      <section id="habitsView" class="view active">
+        <ul id="habitList" class="list"></ul>
+        <p id="habitsEmpty" class="empty hidden">No habits yet. Add one below to start a streak 🔥</p>
+        <form id="habitForm" class="add-row">
+          <input id="habitInput" type="text" placeholder="New habit, e.g. Drink water" maxlength="40" autocomplete="off" />
+          <button type="submit" class="add-btn" aria-label="Add habit">+</button>
+        </form>
+      </section>
+
+      <section id="tasksView" class="view">
+        <ul id="taskList" class="list"></ul>
+        <p id="tasksEmpty" class="empty hidden">No tasks. Add something to knock out today ✅</p>
+        <form id="taskForm" class="add-row">
+          <input id="taskInput" type="text" placeholder="New task, e.g. Email Alex" maxlength="60" autocomplete="off" />
+          <button type="submit" class="add-btn" aria-label="Add task">+</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span id="installHint" class="install-hint hidden">Tip: tap Share → "Add to Home Screen" to install</span>
+      <span class="made">Built with Claude Code on the web</span>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
